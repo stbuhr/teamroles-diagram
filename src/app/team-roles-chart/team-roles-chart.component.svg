@@ -1,0 +1,32 @@
+<svg
+  class="segment"
+  viewBox="-150 -150 300 300"
+>
+  <rect x="-150" y="-150" width="300" height="300" fill="white" />
+  <g *ngFor="let segment of segments">
+    <path
+      *ngFor="let part of segment.parts"
+      [class.veryhighlevel]="isVeryHighLevel(segment, part)"
+      [class.highlevel]="isHighLevel(segment, part)"
+      [class.mediumlevel]="isMediumLevel(segment, part)"
+      [class.lowlevel]="isLowLevel(segment, part)"
+      fill="#FFFFFF"
+      stroke="rgb(150, 150, 150)"
+      [attr.stroke-width]="100 / width()"
+      [attr.d]="getPath(segment, part)"
+    />
+  </g>
+
+  <text
+    *ngFor="let segment of segments"
+    text-anchor="middle"
+    class="segment-text"
+    [attr.x]="getTextX(segment)"
+    [attr.y]="getTextY(segment)"
+    (click)="onSegmentClick(segment.number)"
+  >
+    {{ segment.text }}
+  </text>
+  <text text-anchor="middle" fill="black" x="0.5" y="0.5">{{ getText(10) }}</text>
+  <text text-anchor="middle" class="segment-text" fill="white" (click)="onSegmentClick(10)">{{ getText(10) }}</text>
+</svg>

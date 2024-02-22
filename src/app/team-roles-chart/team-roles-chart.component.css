@@ -1,0 +1,28 @@
+:host {
+  display: block;
+
+  fill: var(--enabled-text);
+  font-size: 8px;
+
+}
+
+.veryhighlevel {
+  fill: var(--very-high-level);
+}
+
+.highlevel {
+  fill: var(--high-level);
+}
+
+.mediumlevel {
+  fill: var(--medium-level);
+}
+
+.lowlevel {
+  fill: var(--low-level);
+}
+
+.segment-text:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
